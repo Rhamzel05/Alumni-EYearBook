@@ -6,8 +6,11 @@ const App = () => {
   const [count, setCount] = useState(0);
   return (
     <>
-    <h1>Hello React {count}</h1>
-    <PrimaryButton label="Click Me" onClick={() => setCount((count) => count + 1)} />
+      <h1>Hello React {count}</h1>
+      <PrimaryButton
+        label="Click Me"
+        onClick={() => setCount((count) => count + 1)}
+      />
     </>
   );
 };
