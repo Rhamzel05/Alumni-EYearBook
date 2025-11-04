@@ -27,11 +27,10 @@ class AuthController extends Controller
         return $this->ok(
             'Authenticated',
             [
-                'token' => $user->createToken(
+                'token' =>$user->createToken(
                     'API token for ' . $user->email,
                     ['*'],
-                    now()->addMonth()
-                )->plainTextToken
+                    now()->addMonth())->plainTextToken
             ]
         );
     }
@@ -40,7 +39,7 @@ class AuthController extends Controller
     {
         $request->user()->currentAccessToken()->delete();
 
-        return $this->ok('');
+        return $this->ok('Logged out successfully');
     }
 
     public function register(RegisterUserRequest $request)
@@ -55,14 +54,6 @@ class AuthController extends Controller
 
         return $this->ok(
             'User registered successfully',
-            [
-                'user' => $user,
-                'token' => $user->createToken(
-                    'API token for ' . $user->email,
-                    ['*'],
-                    now()->addMonth()
-                )->plainTextToken,
-            ]
         );
     }
 

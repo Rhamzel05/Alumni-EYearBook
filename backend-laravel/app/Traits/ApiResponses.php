@@ -16,9 +16,9 @@ trait ApiResponses
         ], $statusCode);
     }
 
-    protected function error($message, $statusCode) {
+    protected function error($message, $statusCode = 600) {
         return response()->json([
-            'message' => $message,
+            'error' => $message,
             'status' => $statusCode
         ], $statusCode);
     }
